@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Jquery jump start</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>	
+
+<script>
+$(document).ready(function(){
+    $("#hide").click(function(){
+        $("#accordion").hide();
+    });
+    $("#show").click(function(){
+        $("#accordion").show();
+    });
+    
+    $("p").append("Prueba desarrollo proyecto");
+    
+    $("p").css("color","white");
+    
+    $('#divId1').on('click', function(ev){
+    	console.log("click on div1");
+    });
+    
+    $("#accordion").accordion();
+    $("#accordion").css("margin-left","23%");
+    
+    $("#divA1").css("background","lightblue").css("width","70%");
+    $("#divA2").css("background","lightblue").css("width","70%");
+    $("#divA3").css("background","lightblue").css("width","70%");
+    $("#divA4").css("background","lightblue").css("width","70%");
+    
+
+    $("h3").css("background","blue");
+    $("h3").css("color","white");
+    
+    
+    $("#sec1").css("width","70%").css("text-align","center");
+    $("#sec2").css("width","70%").css("text-align","center");
+    $("#sec3").css("width","70%").css("text-align","center");
+    $("#sec4").css("width","70%").css("text-align","center");
+    
+    $("#pIdConsulta").css("color","black");
+    
+    var urlservice="http://services.odata.org/TripPinRESTierService/Airports('KSFO')/Name/$value";
+    
+	 $("#pIdConsulta").empty();
+	 
+   $("#service").click(function(){
+	   
+	   return $.get({ 
+	    	url: urlservice, 
+	    	success: function(data){
+				 $("#pIdConsulta").empty();
+	    		 $("#pIdConsulta").append("Dato de servicio consultado: ");
+	    		 $("#pIdConsulta").append(data);
+	    		 $("#pIdConsulta").css("color","black");
+	    		 
+	    	}
+	    	
+	    	
+	    });
+   });
+      
+});
+</script>
+
+<style type="text/css">
+
+.header-black {
+	background-color: #666666;
+	height: 12px;
+	color: #fff;
+	font-size: 9pt;
+	padding: 5px;
+	font-weight: bold;	
+}
+
+.main-body {
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	bottom: 10px;
+	top: 30px;
+	color: #666;
+	font-size: 12px;	
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-color: rgba(236, 246, 249, 1);
+	padding: 0% 0%;
+	width: 99%;
+	text-align:	center;
+	margin: auto;
+	
+}
+
+.footer {
+	
+	color: #666;
+	border-top-color: #666;
+	border-top-width: 1px; 
+	border-top-style: solid; 
+	font-size: 10px;
+	padding:10px;
+	height:10px;
+}
+
+ #footer {
+    position : absolute;
+    bottom : 0;
+    height : 60px;
+	width: 99%; 
+
+  }
+
+.tool-left{
+	float:left;
+}
+
+.tool-right{
+	float:right;
+}
+
+</style>
+
+</head>
+<body>
+	<div class="header-black">Proyecto 1 jquery jump start</div>
+
+
+<div class="main-body">
+
+	<div id="accordion">
+	
+	  <h3 id="sec1">Seccion 1</h3>
+	
+	  <div id="divA1">
+	
+	    <p>
+	
+	   Parrafo 1.
+	
+	    </p>
+	
+	  </div>
+	
+	  <h3 id="sec2">Seccion 2</h3>
+	
+	  <div id="divA2">
+	
+	    <p>
+	
+	   Parrafo 2.
+	
+	    </p>
+	
+	  </div>
+	
+	  <h3 id="sec3">Seccion 3</h3>
+	
+	  <div id="divA3">
+	
+	    <p>
+	
+	   Parrafo 3
+	
+	    </p>
+	
+	
+	  </div>
+	
+	  <h3 id="sec4">Seccion 4</h3>
+	
+	  <div id="divA4">
+	
+	    <p>
+	   		Parrafo 1
+	    </p>
+	
+	    <p>
+	    	Parrafo 2
+	    </p>
+	
+	  </div>
+	
+	</div>
+
+
+
+	<div>		
+		<button id="hide">Ocultar Acordion</button>
+		<button id="show">Mostrar Acordion</button>
+	</div>
+		
+	<div id="divId1">
+		<h4>Clic para mandar mensaje a consola</h4>
+	</div>		
+
+	<div id="divId2">
+		<p id="pIdConsulta"></p>
+		
+		<button id="service">Consultar Servcio</button>
+				
+	</div>	
+
+</div>
+
+<div id="footer" style="top: 690px;">
+
+	<div class="footer">
+		<div class="tool-left">
+			
+		</div>
+		<div class="tool-right">
+			
+		</div>
+
+	</div>
+	<div class="footer">
+		<div class="tool-right">
+			
+		</div>	
+	</div>
+</div>
+
+</body>
+</html>
